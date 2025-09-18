@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=3 format=3 uid="uid://xg1fkim5oe64"]
 
-[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://beqluomyvsplc" path="res://Art Assets/Customers/TestCustomer.png" id="2_e2o6t"]
-[ext_resource type="Script" uid="uid://ce0d138osjrvp" path="res://Scripts/grid_object.gd" id="3_feb5d"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_feb5d"]
-size = Vector2(30, 30)
+[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://grid_controller.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://ce0d138osjrvp" path="res://Scripts/grid_object.gd" id="2_e2o6t"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
@@ -17,18 +13,6 @@ gridSize = Vector2i(30, 15)
 cellSize = 32
 lineThickness = 2
 
-[node name="Objects" type="Node2D" parent="."]
-
-[node name="TestObject" type="Sprite2D" parent="Objects"]
-position = Vector2(128, 128)
-texture = ExtResource("2_e2o6t")
-centered = false
-script = ExtResource("3_feb5d")
-snapToGrid = true
-canBePickedUp = true
-
-[node name="Area2D" type="Area2D" parent="Objects/TestObject"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/TestObject/Area2D"]
-position = Vector2(16, 16)
-shape = SubResource("RectangleShape2D_feb5d")
+[node name="GridObject" type="Node2D" parent="."]
+script = ExtResource("2_e2o6t")
+metadata/_custom_type_script = "uid://ce0d138osjrvp"

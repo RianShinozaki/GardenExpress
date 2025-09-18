@@ -1,3 +1,4 @@
+class_name GridObject
 extends Node2D
 
 @export var snapToGrid: bool
@@ -8,6 +9,7 @@ var pickedUp: bool
 
 var cellSize: int
 var originPoint: Vector2i
+var radius: int
 
 func _ready() -> void:
 	cellSize = grid_controller.instance.cellSize
