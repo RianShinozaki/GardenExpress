@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://xg1fkim5oe64"]
+
+[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
+[ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
+[ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://Objects/customer.tscn" id="3_rxd1x"]
+[ext_resource type="PackedScene" uid="uid://cj6y6aoeqwmy1" path="res://Objects/monument.tscn" id="4_6et8r"]
+
+[sub_resource type="Environment" id="Environment_feb5d"]
+background_mode = 3
+
+[node name="Game" type="Node2D"]
+texture_filter = 1
+
+[node name="GridController" type="Node2D" parent="."]
+position = Vector2(15, 16)
+script = ExtResource("1_1ldu1")
+origin_point = Vector2i(48, 48)
+grid_size = Vector2i(32, 16)
+cell_size = 32
+line_thickness = 4
+line_color = Color(0.09366273, 0.08687282, 0.085973166, 1)
+
+[node name="CustomerQueuer" type="Node2D" parent="." node_paths=PackedStringArray("grid_controller", "customer_queue", "board_objects_parent")]
+position = Vector2(96, 96)
+script = ExtResource("2_6et8r")
+grid_controller = NodePath("../GridController")
+customer_scene = ExtResource("3_rxd1x")
+customer_queue = NodePath(".")
+board_objects_parent = NodePath("../BoardObjects")
+
+[node name="MonumentObject2" parent="." instance=ExtResource("4_6et8r")]
+position = Vector2(495, 337)
+radius_cells = 4
+
+[node name="MonumentObject3" parent="." instance=ExtResource("4_6et8r")]
+position = Vector2(815, 206)
+radius_cells = 4
+
+[node name="MonumentObject4" parent="." instance=ExtResource("4_6et8r")]
+position = Vector2(816, 463)
+radius_cells = 4
+
+[node name="MonumentObject5" parent="." instance=ExtResource("4_6et8r")]
+position = Vector2(207, 241)
+radius_cells = 6
+
+[node name="BoardObjects" type="Node2D" parent="."]
+position = Vector2(16, 32)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_feb5d")

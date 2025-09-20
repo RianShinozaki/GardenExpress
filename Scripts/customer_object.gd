@@ -3,8 +3,7 @@ class_name CustomerObject extends GridObject
 # dictionary of monuments and the time left to visit
 @export var monuments: Dictionary
 @export var time_remaining: float = 10.0
-var in_queue: bool = true
-
+@export var in_queue: bool = true
 @onready var progress_bar: ProgressBar = $ProgressBar
 
 func _ready() -> void:
@@ -37,6 +36,7 @@ func _process(delta: float) -> void:
 	if (time_remaining <= 0):
 		_leave()
 	
+	var _monuments_in_range = detect_monuments(global_position)
 	#_check_satisfaction(delta)
 
 func _check_satisfaction(delta) -> void:
@@ -58,3 +58,11 @@ func _check_satisfaction(delta) -> void:
 func _leave() -> void:
 	# called when a customer is satisfied / out of time
 	queue_free()
+	
+func detect_monuments(_position: Vector2) -> Array[MonumentObject]:
+	var _monument_array: Array[MonumentObject] = []
+	for _monument_object: MonumentObject in GameController.active_monuments:
+		if _monument_object.check_in_range(_position):
+			_monument_array.append(_monument_object)
+	return _monument_array
+		
