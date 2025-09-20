@@ -1,8 +1,7 @@
-class_name GridObject
-extends Node2D
+class_name GridObject extends Node2D
 
-@export var snapToGrid: bool
-@export var canBePickedUp: bool
+@export var snapToGrid: bool = true
+@export var canBePickedUp: bool = true
 var pickedUp: bool
 
 @onready var area: Area2D = $Area2D
@@ -22,8 +21,8 @@ func _process(_delta: float):
 	if snapToGrid:
 		global_position = originPoint + Vector2i(cellSize * gridCoordinate.x, cellSize * gridCoordinate.y)
 	
-	print(roundf(global_position.x / float(cellSize)))
-	print(gridCoordinate)
+	#print(roundf(global_position.x / float(cellSize)))
+	#print(gridCoordinate)
 	
 	if pickedUp:
 		global_position = get_viewport().get_mouse_position() - Vector2(cellSize/2, cellSize/2)

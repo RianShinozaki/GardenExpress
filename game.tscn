@@ -1,18 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=4 format=3 uid="uid://xg1fkim5oe64"]
 
-[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://grid_controller.gd" id="1_80nbo"]
-[ext_resource type="Script" uid="uid://ce0d138osjrvp" path="res://Scripts/grid_object.gd" id="2_e2o6t"]
+[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://customer.tscn" id="3_feb5d"]
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
 
 [node name="GridController" type="Node2D" parent="."]
+position = Vector2(16, 16)
 script = ExtResource("1_80nbo")
-originPoint = Vector2i(64, 64)
+originPoint = Vector2i(67, 64)
 gridSize = Vector2i(30, 15)
 cellSize = 32
 lineThickness = 2
 
-[node name="GridObject" type="Node2D" parent="."]
+[node name="CustomerQueuer" type="Node2D" parent="." node_paths=PackedStringArray("grid_controller", "customer_queue")]
+position = Vector2(96, 96)
 script = ExtResource("2_e2o6t")
-metadata/_custom_type_script = "uid://ce0d138osjrvp"
+grid_controller = NodePath("../GridController")
+customer_scene = ExtResource("3_feb5d")
+customer_queue = NodePath(".")
+
+[node name="BoardObjects" type="Node2D" parent="."]
+position = Vector2(16, 32)

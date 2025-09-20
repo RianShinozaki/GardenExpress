@@ -1,17 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://btqvf8op4ri0g"]
+[gd_scene load_steps=4 format=3 uid="uid://btqvf8op4ri0g"]
 
 [ext_resource type="Script" uid="uid://ce0d138osjrvp" path="res://Scripts/grid_object.gd" id="1_cw5cl"]
+[ext_resource type="Texture2D" uid="uid://beqluomyvsplc" path="res://Art Assets/Customers/TestCustomer.png" id="2_ruq76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xyrg"]
 
 [node name="GridObject" type="Node2D"]
 script = ExtResource("1_cw5cl")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ruq76")
+
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, 16)
 shape = SubResource("RectangleShape2D_1xyrg")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
