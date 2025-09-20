@@ -2,7 +2,9 @@ class_name GridObject extends Node2D
 
 @export var snap_to_grid: bool = true
 @export var can_be_picked_up: bool = true
-@export var grid_snap_offset: Vector2 = Vector2.ZERO
+
+#I've no idea why I have to do this but yeah
+var grid_snap_offset: Vector2 = Vector2(-0.25,-0.25)
 
 var picked_up: bool
 var position_before_picked_up: Vector2

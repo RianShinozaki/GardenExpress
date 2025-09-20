@@ -15,8 +15,8 @@ texture_filter = 1
 position = Vector2(15, 16)
 script = ExtResource("1_1ldu1")
 origin_point = Vector2i(48, 48)
-grid_size = Vector2i(32, 16)
-cell_size = 32
+grid_size = Vector2i(16, 8)
+cell_size = 64
 line_thickness = 4
 line_color = Color(0.09366273, 0.08687282, 0.085973166, 1)
 
@@ -29,20 +29,17 @@ customer_queue = NodePath(".")
 board_objects_parent = NodePath("../BoardObjects")
 
 [node name="MonumentObject2" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(495, 337)
-radius_cells = 4
+position = Vector2(479, 286)
+radius_cells = 2
+grid_snap_offset = Vector2(-0.25, -0.25)
 
 [node name="MonumentObject3" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(815, 206)
-radius_cells = 4
+position = Vector2(862, 225)
+radius_cells = 2
 
 [node name="MonumentObject4" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(816, 463)
-radius_cells = 4
-
-[node name="MonumentObject5" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(207, 241)
-radius_cells = 6
+position = Vector2(861, 480)
+radius_cells = 2
 
 [node name="BoardObjects" type="Node2D" parent="."]
 position = Vector2(16, 32)

@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dj8lb4uhtohgu" path="res://Objects/radius_drawer.gd" id="3_1u7vd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tiyv"]
-size = Vector2(94, 94)
+size = Vector2(62, 62)
 
 [node name="MonumentObject" type="Node2D"]
 script = ExtResource("1_6x0e4")

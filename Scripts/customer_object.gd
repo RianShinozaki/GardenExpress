@@ -37,6 +37,10 @@ func _process(delta: float) -> void:
 		_leave()
 	
 	var _monuments_in_range = detect_monuments(global_position)
+	if not _monuments_in_range.is_empty():
+		modulate = Color.GREEN
+	if not entered_bodies.is_empty():
+		modulate = Color.FIREBRICK
 	#_check_satisfaction(delta)
 
 func _check_satisfaction(delta) -> void:
