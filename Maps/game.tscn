@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=7 format=3 uid="uid://xg1fkim5oe64"]
 
-[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
+[ext_resource type="Script" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
 [ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
 [ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://Objects/customer.tscn" id="3_rxd1x"]
 [ext_resource type="PackedScene" uid="uid://cj6y6aoeqwmy1" path="res://Objects/monument.tscn" id="4_6et8r"]
+[ext_resource type="Script" uid="uid://bqqqqcud30etp" path="res://Scripts/monument_spawner.gd" id="5_spawner"]
 
 [sub_resource type="Environment" id="Environment_feb5d"]
 background_mode = 3
@@ -28,18 +29,11 @@ customer_scene = ExtResource("3_rxd1x")
 customer_queue = NodePath(".")
 board_objects_parent = NodePath("../BoardObjects")
 
-[node name="MonumentObject2" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(479, 286)
-radius_cells = 2
-grid_snap_offset = Vector2(-0.25, -0.25)
-
-[node name="MonumentObject3" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(862, 225)
-radius_cells = 2
-
-[node name="MonumentObject4" parent="." instance=ExtResource("4_6et8r")]
-position = Vector2(861, 480)
-radius_cells = 2
+[node name="MonumentSpawner" type="Node2D" parent="." node_paths=PackedStringArray("grid_controller", "board_objects_parent")]
+script = ExtResource("5_spawner")
+monument_scene = ExtResource("4_6et8r")
+grid_controller = NodePath("../GridController")
+board_objects_parent = NodePath("../BoardObjects")
 
 [node name="BoardObjects" type="Node2D" parent="."]
 position = Vector2(16, 32)
