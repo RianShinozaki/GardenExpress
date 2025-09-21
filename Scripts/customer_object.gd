@@ -1,30 +1,31 @@
 class_name CustomerObject extends GridObject
 
 # dictionary of monuments and the time left to visit
-@export var monuments: Dictionary
+@export var monuments_to_visit: Array[MonumentData]
+@export var monuments_time: Array[float]
 @export var time_remaining: float = 10.0
 @export var in_queue: bool = true
-@onready var progress_bar: ProgressBar = $ProgressBar
+@export var monument_visit_time: float = 10.0
+@onready var patience_bar: ProgressBar = $ProgressBar
+@onready var desire_icon = $DesireList/DesireIcon
 
 func _ready() -> void:
 	super._ready()
-	progress_bar.visible = true
+	patience_bar.visible = true
 	
 	radius = 100
 	
-	progress_bar.max_value = time_remaining
-	progress_bar.value = time_remaining
+	patience_bar.max_value = time_remaining
+	patience_bar.value = time_remaining
+	time_remaining = time_remaining * monuments_to_visit.size()
 	
-	# choose random monuments to visit
-	#var all_monuments = ["tree", "fountain", "flowers"] # replace this when implementing monuments
-	#var num_to_visit = randi() % 4 + 1
+	for i in range(monuments_to_visit.size()):
+		var _desire_icon: TextureRect = desire_icon.duplicate() as TextureRect
+		get_node("DesireList").add_child(_desire_icon)
+		_desire_icon.texture = monuments_to_visit[i].texture
+		monuments_time.append(monument_visit_time);
 	
-	#time_remaining = time_remaining * num_to_visit
-	
-	#all_monuments.shuffle()
-	#for i in range(num_to_visit):
-		#monuments[all_monuments[i]] = 10.0;
-		
+	desire_icon.queue_free()
 	#print("%s wants to visit %d monuments." % [name, monuments.size()])
 
 func _process(delta: float) -> void:
@@ -32,31 +33,26 @@ func _process(delta: float) -> void:
 	
 	# reduce remaining time
 	time_remaining -= delta
-	progress_bar.value = time_remaining
+	patience_bar.value = time_remaining
 	if (time_remaining <= 0):
 		_leave()
 	
+	if picked_up: return
 	var _monuments_in_range = detect_monuments(global_position)
-	if not _monuments_in_range.is_empty():
-		modulate = Color.GREEN
-	if not entered_bodies.is_empty():
-		modulate = Color.FIREBRICK
-	#_check_satisfaction(delta)
-
-func _check_satisfaction(delta) -> void:
-#	decrease time the player needs to stay by a monument
-	for monument in monuments.keys():
-		if global_position.distance_to(monument.global_position) <= radius:
-			monuments[monument] -= delta
-	
-	# check if all monuments have been visited
-	var visited_all = true
-	for monument in monuments.keys():
-		if monuments[monument] > 0.0:
-			visited_all = false
-			break
-	
-	if visited_all:
+	for _monument in _monuments_in_range:
+		
+		var _monument_data: MonumentData = _monument.monument_data
+		var _monument_index = monuments_to_visit.find(_monument_data)
+		if _monument_index == -1: return
+		monuments_time[_monument_index] -= delta
+		var _monument_progress: ProgressBar = get_node("DesireList").get_child(_monument_index).get_node("ProgressBar")
+		_monument_progress.value = 1 - (monuments_time[_monument_index] / monument_visit_time)
+		if monuments_time[_monument_index] <= 0.0:
+			get_node("DesireList").get_child(_monument_index).queue_free()
+			monuments_to_visit.remove_at(_monument_index)
+			monuments_time.remove_at(_monument_index)
+		
+	if monuments_to_visit.is_empty():
 		_leave()
 
 func _leave() -> void:

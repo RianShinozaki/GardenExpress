@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonumentData" load_steps=3 format=3 uid="uid://b7cy5buw5xo11"]
+
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="1_1mms8"]
+[ext_resource type="Texture2D" uid="uid://kg2k2co68kt5" path="res://Art Assets/Monuments/Orange-Flower.png" id="2_1mms8"]
+
+[resource]
+script = ExtResource("1_1mms8")
+texture = ExtResource("2_1mms8")
+monument_type = 1
+radius = 2
+metadata/_custom_type_script = "uid://c8k65j1lfvhm6"

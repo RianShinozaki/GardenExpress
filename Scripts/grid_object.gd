@@ -33,7 +33,7 @@ func _process(_delta: float):
 	
 	if picked_up:
 		@warning_ignore("integer_division")
-		global_position = get_viewport().get_mouse_position()
+		global_position = get_viewport().get_mouse_position() + Vector2(cell_size/2, cell_size/2)
 		if not entered_bodies.is_empty():
 			modulate = Color.FIREBRICK
 			
@@ -50,12 +50,10 @@ func _on_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int):
 		snap_to_grid = false
 
 func _on_area_entered(_area: Area2D):
-	print("entered!")
 	if _area not in entered_bodies:
 		entered_bodies.append(_area)
 
 func _on_area_exited(_area: Area2D):
-	print("exited!")
 	if _area in entered_bodies:
 		entered_bodies.erase(_area)
 

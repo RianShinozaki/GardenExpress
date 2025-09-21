@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonumentData" load_steps=3 format=3 uid="uid://df42yu8lmbh0v"]
+
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="1_t5nvg"]
+[ext_resource type="Texture2D" uid="uid://b3rd81gfscbyv" path="res://Art Assets/Monuments/Fountain.png" id="2_owq8k"]
+
+[resource]
+script = ExtResource("1_t5nvg")
+texture = ExtResource("2_owq8k")
+monument_type = 2
+radius = 2
+metadata/_custom_type_script = "uid://c8k65j1lfvhm6"

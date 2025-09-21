@@ -1,10 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=14 format=3 uid="uid://xg1fkim5oe64"]
 
 [ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
 [ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
 [ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://Objects/customer.tscn" id="3_rxd1x"]
 [ext_resource type="PackedScene" uid="uid://cj6y6aoeqwmy1" path="res://Objects/monument.tscn" id="4_6et8r"]
 [ext_resource type="Script" uid="uid://bqqqqcud30etp" path="res://Scripts/monument_spawner.gd" id="5_spawner"]
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="6_u2770"]
+[ext_resource type="Resource" uid="uid://df42yu8lmbh0v" path="res://Data/Fountain.tres" id="7_hrira"]
+[ext_resource type="Resource" uid="uid://dbgehcf8hyjc3" path="res://Data/Tree.tres" id="8_26r30"]
+[ext_resource type="Resource" uid="uid://bhi5c7rc8v0h2" path="res://Data/BlueFlower.tres" id="9_bvay3"]
+[ext_resource type="Resource" uid="uid://b7cy5buw5xo11" path="res://Data/OrangeFlower.tres" id="10_bvay3"]
+[ext_resource type="Resource" uid="uid://dablhn7yad77q" path="res://Data/Pavilion.tres" id="11_1nv6u"]
+[ext_resource type="Resource" uid="uid://vk3xvdwu5lw8" path="res://Data/Statue.tres" id="12_k8udb"]
 
 [sub_resource type="Environment" id="Environment_feb5d"]
 background_mode = 3
@@ -34,6 +41,14 @@ script = ExtResource("5_spawner")
 monument_scene = ExtResource("4_6et8r")
 grid_controller = NodePath("../GridController")
 board_objects_parent = NodePath("../BoardObjects")
+monument_datas = Array[ExtResource("6_u2770")]([ExtResource("7_hrira"), ExtResource("8_26r30"), ExtResource("9_bvay3"), ExtResource("10_bvay3"), ExtResource("11_1nv6u"), ExtResource("12_k8udb")])
+
+[node name="MonumentSpawner2" type="Node2D" parent="." node_paths=PackedStringArray("grid_controller", "board_objects_parent")]
+script = ExtResource("5_spawner")
+monument_scene = ExtResource("4_6et8r")
+grid_controller = NodePath("../GridController")
+board_objects_parent = NodePath("../BoardObjects")
+monument_datas = Array[ExtResource("6_u2770")]([ExtResource("7_hrira"), ExtResource("8_26r30"), ExtResource("9_bvay3"), ExtResource("10_bvay3"), ExtResource("11_1nv6u"), ExtResource("12_k8udb"), ExtResource("9_bvay3"), ExtResource("10_bvay3"), ExtResource("8_26r30")])
 
 [node name="BoardObjects" type="Node2D" parent="."]
 position = Vector2(16, 32)

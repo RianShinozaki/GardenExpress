@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="MonumentData" load_steps=3 format=3 uid="uid://bhi5c7rc8v0h2"]
+
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="1_nn3a3"]
+[ext_resource type="Texture2D" uid="uid://qgw3wc7ewpb5" path="res://Art Assets/Monuments/Blue-Flower.png" id="2_pt3m3"]
+
+[resource]
+script = ExtResource("1_nn3a3")
+texture = ExtResource("2_pt3m3")
+radius = 2
+metadata/_custom_type_script = "uid://c8k65j1lfvhm6"

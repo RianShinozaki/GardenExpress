@@ -6,11 +6,7 @@ class_name MonumentSpawner extends Node2D
 @export var min_distance_between_monuments: int = 4  # Minimum cells between monuments
 @export var edge_buffer: int = 1  # Minimum distance from grid edges
 
-var monument_configs: Array[Dictionary] = [
-	{"type": MonumentObject.MONUMENT_TYPE.OUTHOUSE, "radius": 2},
-	{"type": MonumentObject.MONUMENT_TYPE.FOUNTAIN, "radius": 3},
-	{"type": MonumentObject.MONUMENT_TYPE.MOUNTAIN, "radius": 2}
-]
+@export  var monument_datas: Array[MonumentData]
 
 var occupied_positions: Array[Vector2i] = []
 
@@ -31,12 +27,10 @@ func _spawn_initial_monuments() -> void:
 	occupied_positions.clear()
 	
 	# Generate random positions for each monument
-	for config in monument_configs:
+	for _monument_data in monument_datas:
 		var random_position = _get_random_valid_position()
 		if random_position != Vector2i(-1, -1):  # Valid position found
-			_spawn_monument_at_position(random_position, config)
-		else:
-			print("Could not find valid position for monument of type: ", config.type)
+			_spawn_monument_at_position(random_position, _monument_data)
 
 func _get_random_valid_position() -> Vector2i:
 	var max_attempts = 100  # Prevent infinite loops
@@ -64,18 +58,15 @@ func _is_position_available(grid_pos: Vector2i) -> bool:
 	
 	return true
 
-func _spawn_monument_at_position(grid_pos: Vector2i, config: Dictionary) -> void:
+func _spawn_monument_at_position(grid_pos: Vector2i, _monument_data: MonumentData) -> void:
 	if not _is_position_valid(grid_pos):
 		print("Invalid position for monument: ", grid_pos)
 		return
 	
 	var monument = monument_scene.instantiate() as MonumentObject
-	
-	monument.monument_type = config.type
-	monument.radius_cells = config.radius
-	
 	var world_position = grid_controller.origin_point + grid_pos * grid_controller.cell_size
 	monument.global_position = world_position
+	monument.set_monument_data(_monument_data)
 	
 	board_objects_parent.add_child(monument)
 	

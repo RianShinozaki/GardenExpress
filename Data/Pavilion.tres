@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonumentData" load_steps=3 format=3 uid="uid://dablhn7yad77q"]
+
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="1_mmmc1"]
+[ext_resource type="Texture2D" uid="uid://r3qeixv31dat" path="res://Art Assets/Monuments/Pavilion.png" id="2_mmmc1"]
+
+[resource]
+script = ExtResource("1_mmmc1")
+texture = ExtResource("2_mmmc1")
+monument_type = 3
+radius = 2
+metadata/_custom_type_script = "uid://c8k65j1lfvhm6"

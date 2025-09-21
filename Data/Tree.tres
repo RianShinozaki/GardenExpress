@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MonumentData" load_steps=3 format=3 uid="uid://dbgehcf8hyjc3"]
+
+[ext_resource type="Script" uid="uid://c8k65j1lfvhm6" path="res://Data/monument_data.gd" id="1_r6jgh"]
+[ext_resource type="Texture2D" uid="uid://dum4dj367145g" path="res://Art Assets/Monuments/Tree.png" id="2_j0g44"]
+
+[resource]
+script = ExtResource("1_r6jgh")
+texture = ExtResource("2_j0g44")
+monument_type = 4
+radius = 2
+metadata/_custom_type_script = "uid://c8k65j1lfvhm6"

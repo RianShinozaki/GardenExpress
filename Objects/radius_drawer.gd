@@ -25,7 +25,7 @@ func _draw() -> void:
 	if not monument or not grid_controller or not is_instance_valid(grid_controller):
 		return
 		
-	var radius_cells: int = monument.radius_cells
+	var radius_cells: int = monument.monument_data.radius
 	
 	# Get the monument's grid position
 	var monument_world_pos = monument.global_position
