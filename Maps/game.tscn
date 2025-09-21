@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://xg1fkim5oe64"]
 
-[ext_resource type="Script" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
+[ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
 [ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
 [ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://Objects/customer.tscn" id="3_rxd1x"]
 [ext_resource type="PackedScene" uid="uid://cj6y6aoeqwmy1" path="res://Objects/monument.tscn" id="4_6et8r"]
