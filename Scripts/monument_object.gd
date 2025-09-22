@@ -39,7 +39,7 @@ func _apply_sprite_scaling() -> void:
 	if auto_resize_to_cell:
 		# Automatically resize to fit the grid cell
 		var texture_size = sprite_node.texture.get_size()
-		var target_size = Vector2(cell_size * 1.2, cell_size * 1.2)  # 80% of cell size
+		var target_size = Vector2(cell_size * 1.8, cell_size * 1.8)
 		var scale_factor = Vector2(
 			target_size.x / texture_size.x,
 			target_size.y / texture_size.y
