@@ -41,3 +41,4 @@ func do_game_over_helper() -> void:
 static func do_game_over() -> void:
 	instance.do_game_over_helper()
 	GameController.active_monuments.clear()
+	GameController.final_score = instance.satisfied_customers
