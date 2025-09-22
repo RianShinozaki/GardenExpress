@@ -11,3 +11,6 @@ a new customer will arrive with certain locations, preferences, and personalitie
 Monuments have a radius of influence, allowing players to strategize
 and prioritize certain customers. As the garden's business thrives,
 the board expands and new monuments will be available to place.
+
+Music by 1144ghost : https://1144ghost.itch.io/cutycozy-music-pack-2
+Coin SFX by Jalastram : https://jalastram.itch.io/coins-sounds

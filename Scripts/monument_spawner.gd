@@ -50,13 +50,12 @@ func _get_random_valid_position() -> Vector2i:
 	return Vector2i(-1, -1)
 
 func _is_position_available(grid_pos: Vector2i) -> bool:
-	# Check if position is too close to existing monuments
 	for occupied_pos in occupied_positions:
-		var distance = grid_pos.distance_to(occupied_pos)
+		var distance = abs(grid_pos.x - occupied_pos.x) + abs(grid_pos.y - occupied_pos.y)
 		if distance < min_distance_between_monuments:
 			return false
-	
 	return true
+
 
 func _spawn_monument_at_position(grid_pos: Vector2i, _monument_data: MonumentData) -> void:
 	if not _is_position_valid(grid_pos):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://h7whcttdoe0e"]
+[gd_scene load_steps=29 format=3 uid="uid://h7whcttdoe0e"]
 
 [ext_resource type="Script" uid="uid://dsrhpsboh1qxo" path="res://Scripts/customer_object.gd" id="1_7tiyv"]
 [ext_resource type="Texture2D" uid="uid://beqluomyvsplc" path="res://Art Assets/Customers/TestCustomer.png" id="2_r8ta2"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://bhi5c7rc8v0h2" path="res://Data/BlueFlower.tres" id="3_q381c"]
 [ext_resource type="Resource" uid="uid://df42yu8lmbh0v" path="res://Data/Fountain.tres" id="4_v3aac"]
 [ext_resource type="Resource" uid="uid://dablhn7yad77q" path="res://Data/Pavilion.tres" id="5_6lvd0"]
+[ext_resource type="AudioStream" uid="uid://bchh7hs1tcgo7" path="res://Art Assets/coins.ogg" id="6_v3aac"]
 [ext_resource type="Texture2D" uid="uid://qgw3wc7ewpb5" path="res://Art Assets/Monuments/Blue-Flower.png" id="8_q381c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhif6"]
@@ -315,6 +316,7 @@ transitions = ["Open", "Close", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_7tiyv")
 monuments_to_visit = Array[ExtResource("2_xhif6")]([ExtResource("3_q381c"), ExtResource("4_v3aac"), ExtResource("5_6lvd0")])
 time_remaining = 15.0
+cash_sfx = ExtResource("6_v3aac")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 offset_left = -24.0

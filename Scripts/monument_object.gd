@@ -5,12 +5,6 @@ extends GridObject
 @export var monument_data: MonumentData
 @export var radius_color: Color
 
-# Sprite resources for each monument type
-@export var outhouse_sprite: Texture2D
-@export var mountain_sprite: Texture2D
-@export var fountain_sprite: Texture2D
-@export var concessions_sprite: Texture2D
-
 # Sprite scaling options
 @export var sprite_scale: Vector2 = Vector2(1.0, 1.0)
 @export var auto_resize_to_cell: bool = true
