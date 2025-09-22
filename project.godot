@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GameController="*res://Scripts/game_controller.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 mouse_click={
