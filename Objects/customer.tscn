@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://h7whcttdoe0e"]
+[gd_scene load_steps=28 format=3 uid="uid://h7whcttdoe0e"]
 
 [ext_resource type="Script" uid="uid://dsrhpsboh1qxo" path="res://Scripts/customer_object.gd" id="1_7tiyv"]
 [ext_resource type="Texture2D" uid="uid://beqluomyvsplc" path="res://Art Assets/Customers/TestCustomer.png" id="2_r8ta2"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://qgw3wc7ewpb5" path="res://Art Assets/Monuments/Blue-Flower.png" id="8_q381c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhif6"]
-bg_color = Color(0.7365204, 0, 0.13677767, 0.5137255)
+bg_color = Color(1, 1, 1, 0.5137255)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
@@ -40,6 +40,27 @@ ProgressBar/styles/fill = SubResource("StyleBoxFlat_q381c")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tiyv"]
 size = Vector2(62, 62)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axfpd"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.7413847, 0.7413847, 0.7413843, 1)
+border_blend = true
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 3.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="Theme" id="Theme_qc3ja"]
+default_font_size = 0
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_axfpd")
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3aac"]
 bg_color = Color(1, 1, 1, 0.5137255)
 border_width_left = 1
@@ -58,15 +79,237 @@ expand_margin_bottom = 1.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6lvd0"]
-bg_color = Color(1.1792034e-06, 0.471362, 0.20854065, 0.5137255)
+bg_color = Color(0, 0.89411765, 0.53333336, 1)
 corner_radius_top_left = 1
 corner_radius_top_right = 1
 corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 anti_aliasing = false
 
 [sub_resource type="Theme" id="Theme_axfpd"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_v3aac")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_6lvd0")
+
+[sub_resource type="Animation" id="Animation_q381c"]
+resource_name = "Open"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 1.1034038, -0.10592374, -0.0035037994, 0, 0, 1.004493, -0.03925708, 0.12667692, 0, 0.016129494),
+"times": PackedFloat32Array(0, 0.23333335, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0, 1.1034038, -0.10592374, -0.0035037994, 0, 0, 0.9986747, -0.03925708, 0.13249516, 0, 0),
+"times": PackedFloat32Array(0, 0.23333335, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_v3aac"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.5, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:r")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:modulate:g")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:modulate:b")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:modulate:a")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_6lvd0"]
+resource_name = "Close"
+length = 0.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.033333335, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.033333335, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5, -0.033333335, 0.083333336, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.5, -0.033333335, 0.083333336, 0, 0),
+"times": PackedFloat32Array(0, 0.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6lvd0"]
+_data = {
+&"Close": SubResource("Animation_6lvd0"),
+&"Open": SubResource("Animation_q381c"),
+&"RESET": SubResource("Animation_v3aac")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q381c"]
+animation = &"Close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v3aac"]
+animation = &"Open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q381c"]
+advance_mode = 2
+advance_expression = "show_desire == false"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v3aac"]
+advance_mode = 2
+advance_expression = "show_desire == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6lvd0"]
+advance_mode = 2
+advance_expression = "show_desire == true"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6lvd0"]
+states/Close/node = SubResource("AnimationNodeAnimation_q381c")
+states/Close/position = Vector2(207, 32)
+states/Open/node = SubResource("AnimationNodeAnimation_v3aac")
+states/Open/position = Vector2(399, 94)
+transitions = ["Open", "Close", SubResource("AnimationNodeStateMachineTransition_q381c"), "Close", "Open", SubResource("AnimationNodeStateMachineTransition_v3aac"), "Start", "Open", SubResource("AnimationNodeStateMachineTransition_6lvd0")]
 
 [node name="CustomerObject" type="Node2D"]
 script = ExtResource("1_7tiyv")
@@ -93,36 +336,55 @@ grid_snap_offset = Vector2(0.75, 0.75)
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_7tiyv")
 
-[node name="DesireList" type="HBoxContainer" parent="."]
-anchors_preset = 8
+[node name="PanelContainer" type="PanelContainer" parent="."]
+texture_filter = 4
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.0
-offset_top = 9.0
-offset_right = 28.0
-offset_bottom = 25.0
+offset_left = -20.0
+offset_top = 18.0
+offset_right = 20.0
+offset_bottom = 58.0
 grow_horizontal = 2
-grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(20, 0)
+theme = SubResource("Theme_qc3ja")
 
-[node name="DesireIcon" type="TextureRect" parent="DesireList"]
+[node name="DesireList" type="HBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="DesireIcon" type="TextureRect" parent="PanelContainer/DesireList"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
 texture = ExtResource("8_q381c")
-expand_mode = 1
+expand_mode = 3
 
-[node name="ProgressBar" type="ProgressBar" parent="DesireList/DesireIcon"]
+[node name="ProgressBar" type="ProgressBar" parent="PanelContainer/DesireList/DesireIcon"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 2.125
-anchor_right = 1.0
-anchor_bottom = 2.125
-offset_left = -24.0
-offset_top = -26.0
-offset_bottom = -22.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -12.0
+offset_top = -4.0
+offset_right = 12.0
+grow_horizontal = 2
+grow_vertical = 0
 theme = SubResource("Theme_axfpd")
 max_value = 1.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PanelContainer"]
+libraries = {
+&"": SubResource("AnimationLibrary_6lvd0")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="PanelContainer"]
+tree_root = SubResource("AnimationNodeStateMachine_6lvd0")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=15 format=3 uid="uid://xg1fkim5oe64"]
 
 [ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
 [ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
@@ -12,6 +12,7 @@
 [ext_resource type="Resource" uid="uid://b7cy5buw5xo11" path="res://Data/OrangeFlower.tres" id="10_bvay3"]
 [ext_resource type="Resource" uid="uid://dablhn7yad77q" path="res://Data/Pavilion.tres" id="11_1nv6u"]
 [ext_resource type="Resource" uid="uid://vk3xvdwu5lw8" path="res://Data/Statue.tres" id="12_k8udb"]
+[ext_resource type="Texture2D" uid="uid://3axvg5irc7ka" path="res://Art Assets/background.png" id="13_1nv6u"]
 
 [sub_resource type="Environment" id="Environment_feb5d"]
 background_mode = 3
@@ -19,14 +20,21 @@ background_mode = 3
 [node name="Game" type="Node2D"]
 texture_filter = 1
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+texture_filter = 3
+position = Vector2(574.70685, 280.25)
+scale = Vector2(0.4907074, 0.49070746)
+texture = ExtResource("13_1nv6u")
+
 [node name="GridController" type="Node2D" parent="."]
 position = Vector2(15, 16)
 script = ExtResource("1_1ldu1")
 origin_point = Vector2i(48, 48)
 grid_size = Vector2i(16, 8)
 cell_size = 64
-line_thickness = 4
-line_color = Color(0.09366273, 0.08687282, 0.085973166, 1)
+line_thickness = 2
+line_color = Color(0.5749993, 0.6858728, 0.6256213, 1)
 
 [node name="CustomerQueuer" type="Node2D" parent="." node_paths=PackedStringArray("grid_controller", "customer_queue", "board_objects_parent")]
 position = Vector2(96, 96)

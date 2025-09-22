@@ -33,7 +33,7 @@ func _process(_delta: float):
 	
 	if picked_up:
 		@warning_ignore("integer_division")
-		global_position = get_viewport().get_mouse_position() + Vector2(cell_size/2, cell_size/2)
+		global_position = get_global_mouse_position()
 		if not entered_bodies.is_empty():
 			modulate = Color.FIREBRICK
 			
