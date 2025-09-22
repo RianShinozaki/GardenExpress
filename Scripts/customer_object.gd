@@ -88,6 +88,11 @@ func _process(delta: float) -> void:
 			monuments_time.remove_at(_monument_index)
 
 func _leave() -> void:
+	# called when a customer is satisfied / out of time
+	if monuments_to_visit.is_empty():
+		# satisfied customer
+		GameController.add_satisfied_customer()
+	print("Satisfied customers: %d" % GameController.satisfied_customers)
 	queue_free()
 
 func detect_monuments(_position: Vector2) -> Array[MonumentObject]:
