@@ -31,7 +31,7 @@ func _ready() -> void:
 	monuments_to_visit = all_monuments.slice(0, num_monuments)
 
 	# patience is multiplied by number of monuments
-	patience_bar.max_value = time_remaining * monuments_to_visit.size()
+	patience_bar.max_value = time_remaining * (monuments_to_visit.size() + 2)
 	time_remaining = patience_bar.max_value
 	patience_bar.value = time_remaining
 
