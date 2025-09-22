@@ -1,0 +1,100 @@
+[gd_scene load_steps=10 format=3 uid="uid://ih0k2vc0pidh"]
+
+[ext_resource type="Script" uid="uid://b2sgamumf6vqh" path="res://Scripts/switch_scene_button.gd" id="1_mmm0j"]
+[ext_resource type="Texture2D" uid="uid://b0r5l3e8j6atw" path="res://Art Assets/Title_Page_Empty.png" id="3_dwqc2"]
+[ext_resource type="FontFile" uid="uid://c0aoh3pqun3ju" path="res://Art Assets/Fonts/AYUMA___.TTF" id="4_6475x"]
+[ext_resource type="FontFile" uid="uid://cekjg01n5hayk" path="res://Art Assets/Fonts/CaviarDreams.ttf" id="5_d7r28"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l26j"]
+bg_color = Color(0.9691506, 0.87317234, 0.92406744, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dr3uu"]
+bg_color = Color(0.9691506, 0.87317234, 0.92406744, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xnjw"]
+bg_color = Color(0.74487895, 0.33538613, 0.5949337, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_lssfy"]
+Button/colors/font_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+Button/colors/font_hover_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("4_6475x")
+Button/styles/hover = SubResource("StyleBoxFlat_8l26j")
+Button/styles/normal = SubResource("StyleBoxFlat_dr3uu")
+Button/styles/pressed = SubResource("StyleBoxFlat_3xnjw")
+
+[sub_resource type="Theme" id="Theme_cw2mv"]
+RichTextLabel/font_sizes/normal_font_size = 36
+RichTextLabel/fonts/normal_font = ExtResource("5_d7r28")
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_mmm0j")
+next_scene = "uid://c3cuycxs726xh"
+
+[node name="TitlePage" type="Sprite2D" parent="."]
+position = Vector2(578.00006, 348)
+scale = Vector2(0.901282, 0.9012821)
+texture = ExtResource("3_dwqc2")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 434.0
+offset_top = 561.0
+offset_right = 722.0
+offset_bottom = 620.0
+focus_mode = 0
+theme = SubResource("Theme_lssfy")
+text = "Back to Title"
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 385.0
+offset_top = 283.0
+offset_right = 649.2201
+offset_bottom = 342.93884
+scale = Vector2(1.635, 1.635)
+theme = SubResource("Theme_cw2mv")
+theme_override_fonts/normal_font = ExtResource("4_6475x")
+theme_override_font_sizes/normal_font_size = 45
+text = "Game Over..."
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)

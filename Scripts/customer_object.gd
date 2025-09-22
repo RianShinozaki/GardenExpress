@@ -66,7 +66,7 @@ func _process(delta: float) -> void:
 	time_remaining -= delta
 	patience_bar.value = time_remaining
 	if time_remaining <= 0:
-		_leave()
+		Game.do_game_over()
 
 	if monuments_to_visit.is_empty():
 		_leave()

@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://xg1fkim5oe64"]
+[gd_scene load_steps=17 format=3 uid="uid://xg1fkim5oe64"]
 
 [ext_resource type="Script" uid="uid://3823qkd12a7a" path="res://Scripts/grid_controller.gd" id="1_1ldu1"]
+[ext_resource type="Script" uid="uid://f52nfrf8ck1i" path="res://Scripts/game.gd" id="1_k8udb"]
 [ext_resource type="Script" uid="uid://cug412gakuo1x" path="res://Scripts/customer_queue.gd" id="2_6et8r"]
+[ext_resource type="PackedScene" uid="uid://ih0k2vc0pidh" path="res://Maps/GameOver.tscn" id="2_ssil2"]
 [ext_resource type="PackedScene" uid="uid://h7whcttdoe0e" path="res://Objects/customer.tscn" id="3_rxd1x"]
 [ext_resource type="PackedScene" uid="uid://cj6y6aoeqwmy1" path="res://Objects/monument.tscn" id="4_6et8r"]
 [ext_resource type="Script" uid="uid://bqqqqcud30etp" path="res://Scripts/monument_spawner.gd" id="5_spawner"]
@@ -19,6 +21,8 @@ background_mode = 3
 
 [node name="Game" type="Node2D"]
 texture_filter = 1
+script = ExtResource("1_k8udb")
+game_over_scene = ExtResource("2_ssil2")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -10

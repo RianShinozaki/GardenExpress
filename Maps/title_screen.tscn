@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3cuycxs726xh"]
+
+[ext_resource type="Script" uid="uid://b2sgamumf6vqh" path="res://Scripts/switch_scene_button.gd" id="1_8l26j"]
+[ext_resource type="Texture2D" uid="uid://c4r0iecepslpq" path="res://Art Assets/Title Page.png" id="1_at0rf"]
+[ext_resource type="FontFile" uid="uid://c0aoh3pqun3ju" path="res://Art Assets/Fonts/AYUMA___.TTF" id="2_0oh4u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8l26j"]
+bg_color = Color(0.9691506, 0.87317234, 0.92406744, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dr3uu"]
+bg_color = Color(0.9691506, 0.87317234, 0.92406744, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3xnjw"]
+bg_color = Color(0.74487895, 0.33538613, 0.5949337, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_lssfy"]
+Button/colors/font_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+Button/colors/font_hover_color = Color(0.1764706, 0.18431373, 0.28235295, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("2_0oh4u")
+Button/styles/hover = SubResource("StyleBoxFlat_8l26j")
+Button/styles/normal = SubResource("StyleBoxFlat_dr3uu")
+Button/styles/pressed = SubResource("StyleBoxFlat_3xnjw")
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_8l26j")
+next_scene = "uid://bvm0sjd1w0g1u"
+
+[node name="TitlePage" type="Sprite2D" parent="."]
+position = Vector2(578.00006, 348)
+scale = Vector2(0.901282, 0.9012821)
+texture = ExtResource("1_at0rf")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 446.0
+offset_top = 561.0
+offset_right = 695.0
+offset_bottom = 620.0
+focus_mode = 0
+theme = SubResource("Theme_lssfy")
+text = "Start Game!"
+alignment = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
