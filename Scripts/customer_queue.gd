@@ -6,6 +6,9 @@ class_name CustomerQueue extends Node2D
 @export var board_objects_parent: Node2D
 
 var spawn_interval: float = 5.0
+var min_spawn_interval: float = 1.0
+var interval_decrease: float = 0.07
+
 var spawn_timer: float = 0.0
 var next_column: int = 0
 
@@ -15,6 +18,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	spawn_timer -= delta
 	if spawn_timer <= 0.0:
+		# decrease interval to speed up spawning, but don't go below minimum
+		spawn_interval = max(spawn_interval - interval_decrease, min_spawn_interval)
 		_spawn_customer()
 		spawn_timer = spawn_interval
 
